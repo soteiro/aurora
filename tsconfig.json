@@ -30,7 +30,8 @@
       "@fetchers/*": ["fetchers/*"],
       "@emails/*": ["emails/*"],
       "@utils/*": ["utils/*"],
-      "@types/*": ["types/*"]
+      "@types/*": ["types/*"],
+      "@api/*": ["api/*"]
     }
   }
 }
