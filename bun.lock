@@ -9,17 +9,17 @@
         "axios": "^1.13.5",
         "react": "19.2.4",
         "react-dom": "19.2.4",
-        "resend": "^6.9.2",
+        "resend": "^6.9.2"
       },
       "devDependencies": {
         "@react-email/preview-server": "5.2.8",
         "@types/bun": "latest",
-        "react-email": "5.2.8",
+        "react-email": "5.2.8"
       },
       "peerDependencies": {
-        "typescript": "^5",
-      },
-    },
+        "typescript": "^5"
+      }
+    }
   },
   "packages": {
     "@babel/code-frame": ["@babel/code-frame@7.29.0", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.28.5", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw=="],
