@@ -4,6 +4,16 @@ import type { Task } from "@/types"
 
 const COMPLETED_STATUS = 2
 
+const isToday = (dateStr: string): boolean => {
+    const taskDate = new Date(dateStr)
+    const today = new Date()
+    return (
+        taskDate.getFullYear() === today.getFullYear() &&
+        taskDate.getMonth() === today.getMonth() &&
+        taskDate.getDate() === today.getDate()
+    )
+}
+
 export const getActiveTickTickTasks = async (): Promise<Task[]> => {
     const projects: any[] = await getProjects()
     const activeTasks: Task[] = []
@@ -13,7 +23,10 @@ export const getActiveTickTickTasks = async (): Promise<Task[]> => {
         const tasks: any[] = data.tasks ?? []
 
         const filtered: Task[] = tasks
-            .filter((task: any) => task.status !== COMPLETED_STATUS)
+            .filter((task: any) =>
+                task.status !== COMPLETED_STATUS &&
+                task.dueDate && isToday(task.dueDate)
+            )
             .map((task: any) => ({
                 name: task.title,
                 id: task.id,
@@ -26,7 +39,7 @@ export const getActiveTickTickTasks = async (): Promise<Task[]> => {
         activeTasks.push(...filtered)
     }
 
-    logger.info(`TickTick: ${activeTasks.length} active tasks found`)
+    logger.info(`TickTick: ${activeTasks.length} tasks due today`)
     return activeTasks
 }
 

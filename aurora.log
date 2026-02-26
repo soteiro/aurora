@@ -1,0 +1,42 @@
+{"level":"debug","time":"2026-02-26T01:00:16.874Z","msg":"Config loaded: CLICKUP_TOKEN"}
+{"level":"debug","time":"2026-02-26T01:00:16.875Z","msg":"Config loaded: CLICKUP_WORKSPACE_ID"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: CLICKUP_SPACE_ID"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: GEMINI_API_KEY"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: RESEND_API_KEY"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: RESEND_TO_EMAIL"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: RESEND_FROM_EMAIL"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: TICKTICK_CLIENT_ID"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: TICKTICK_CLIENT_SECRET"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: TICKTICK_ACCESS_TOKEN"}
+{"level":"debug","time":"2026-02-26T01:00:16.876Z","msg":"Config loaded: TICKTICK_REDIRECT_URI"}
+{"level":"info","time":"2026-02-26T01:00:17.550Z","msg":"Starting Aurora"}
+{"level":"info","time":"2026-02-26T01:00:17.550Z","msg":"Fetching tasks from all sources..."}
+{"level":"debug","time":"2026-02-26T01:00:18.686Z","msg":"Folders fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:19.336Z","msg":"Lists fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:19.342Z","msg":"TickTick projects fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:19.942Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:19.945Z","msg":"TickTick project data fetched: 6601e07bd356b600000000b0"}
+{"level":"debug","time":"2026-02-26T01:00:20.717Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:20.719Z","msg":"TickTick project data fetched: 6601e1b5d356b60000000165"}
+{"level":"info","time":"2026-02-26T01:00:20.719Z","msg":"TickTick: 0 tasks due today"}
+{"level":"debug","time":"2026-02-26T01:00:21.574Z","msg":"Lists fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:22.112Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:22.628Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:23.112Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:23.587Z","msg":"Lists fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:24.102Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:24.600Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:25.163Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:26.084Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:26.683Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:27.130Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:27.621Z","msg":"Lists fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:28.005Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:28.459Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:28.872Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:30.385Z","msg":"Lists fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:30.817Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:31.320Z","msg":"Tasks fetched successfully"}
+{"level":"debug","time":"2026-02-26T01:00:31.760Z","msg":"Tasks fetched successfully"}
+{"level":"info","time":"2026-02-26T01:00:31.761Z","msg":"Found 11 active tasks (ClickUp: 11, TickTick: 0)"}
+{"level":"info","time":"2026-02-26T01:00:32.202Z","msg":"Digest email sent to diego_sarq@hotmail.com"}
