@@ -1,25 +1,21 @@
 import pino from 'pino';
+import pinoPretty from 'pino-pretty';
+import fs from 'fs';
 
 const level = process.env.LOG_LEVEL || 'info'
 
-export const logger = pino({
-  level,
-  transport: {
-    targets: [
-      {
-        target: 'pino-pretty',
-        options: {
-          colorize: true,
-          translateTime: 'SYS:yyyy-mm-dd HH:MM:ss',
-          ignore: 'pid,hostname',
-        },
-        level,
-      },
-      {
-        target: 'pino/file',
-        options: { destination: './aurora.log', mkdir: true },
-        level,
-      },
-    ],
-  },
-});
+const fileStream = fs.createWriteStream('./aurora.log', { flags: 'a' })
+
+const prettyStream = pinoPretty({
+  colorize: true,
+  translateTime: 'SYS:yyyy-mm-dd HH:MM:ss',
+  ignore: 'pid,hostname',
+})
+
+export const logger = pino(
+  { level },
+  pino.multistream([
+    { stream: prettyStream, level: level as pino.Level },
+    { stream: fileStream, level: level as pino.Level },
+  ])
+);

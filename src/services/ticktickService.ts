@@ -4,13 +4,6 @@ import type { Task } from "@/types"
 
 const COMPLETED_STATUS = 2
 
-const isTodayOrOverdue = (dateStr: string): boolean => {
-    const taskDate = new Date(dateStr)
-    const today = new Date()
-    today.setHours(23, 59, 59, 999)
-    return taskDate <= today
-}
-
 export const getActiveTickTickTasks = async (): Promise<Task[]> => {
     const projects: any[] = await getProjects()
     const activeTasks: Task[] = []
@@ -20,10 +13,7 @@ export const getActiveTickTickTasks = async (): Promise<Task[]> => {
         const tasks: any[] = data.tasks ?? []
 
         const filtered: Task[] = tasks
-            .filter((task: any) =>
-                task.status !== COMPLETED_STATUS &&
-                task.dueDate && isTodayOrOverdue(task.dueDate)
-            )
+            .filter((task: any) => task.status !== COMPLETED_STATUS)
             .map((task: any) => ({
                 name: task.title,
                 id: task.id,
@@ -36,7 +26,7 @@ export const getActiveTickTickTasks = async (): Promise<Task[]> => {
         activeTasks.push(...filtered)
     }
 
-    logger.info(`TickTick: ${activeTasks.length} tasks due today or overdue`)
+    logger.info(`TickTick: ${activeTasks.length} active tasks found`)
     return activeTasks
 }
 
