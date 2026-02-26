@@ -6,9 +6,9 @@ interface Config {
     spaceId: number;
 }
 
-const getEnv = (key: string): string =>{
+const getEnv = (key: string): string => {
     const value = process.env[key];
-    if (!value){
+    if (!value) {
         logger.error(`Config Error: ${key} is missing`);
         throw new Error(`Config Error: ${key} is missing`)
     }
@@ -23,4 +23,17 @@ export const clickUpConfig: Config = {
 }
 export const geminiConfig = {
     apiKey: getEnv("GEMINI_API_KEY")
+}
+
+export const resendConfig = {
+    apiKey: getEnv("RESEND_API_KEY"),
+    to: getEnv("RESEND_TO_EMAIL"),
+    from: getEnv("RESEND_FROM_EMAIL"),
+}
+
+export const tickTickConfig = {
+    clientId: getEnv("TICKTICK_CLIENT_ID"),
+    clientSecret: getEnv("TICKTICK_CLIENT_SECRET"),
+    accessToken: getEnv("TICKTICK_ACCESS_TOKEN"),
+    redirectUri: getEnv("TICKTICK_REDIRECT_URI"),
 }
