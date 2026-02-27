@@ -14,35 +14,6 @@ const isToday = (dateStr: string): boolean => {
     )
 }
 
-export const getActiveTickTickTasks = async (): Promise<Task[]> => {
-    const projects: any[] = await getProjects()
-    const activeTasks: Task[] = []
-
-    for (const project of projects) {
-        const data = await getProjectData(project.id)
-        const tasks: any[] = data.tasks ?? []
-
-        const filtered: Task[] = tasks
-            .filter((task: any) =>
-                task.status !== COMPLETED_STATUS &&
-                task.dueDate && isToday(task.dueDate)
-            )
-            .map((task: any) => ({
-                name: task.title,
-                id: task.id,
-                list: project.name,
-                folder: "TickTick",
-                status: getStatusLabel(task.status, task.priority),
-                source: "ticktick" as const,
-            }))
-
-        activeTasks.push(...filtered)
-    }
-
-    logger.info(`TickTick: ${activeTasks.length} tasks due today`)
-    return activeTasks
-}
-
 const getStatusLabel = (status: number, priority: number): string => {
     if (status === 2) return "completed"
 
@@ -54,4 +25,41 @@ const getStatusLabel = (status: number, priority: number): string => {
     }
     const pLabel = priorityLabels[priority] ?? "none"
     return pLabel === "none" ? "active" : `active (${pLabel})`
+}
+
+const mapTasks = (tasks: any[], listName: string): Task[] =>
+    tasks
+        .filter((task: any) =>
+            task.status !== COMPLETED_STATUS  &&
+            task.dueDate  &&  isToday(task.dueDate)
+            )
+        .map((task: any) => ({
+            name: task.title,
+            id: task.id,
+            list: listName,
+            folder: "TickTick",
+            status: getStatusLabel(task.status, task.priority),
+            source: "ticktick" as const,
+        }))
+
+export const getActiveTickTickTasks = async (): Promise<Task[]> => {
+    const [projects, inboxData] = await Promise.all([
+        getProjects(),
+        getProjectData("inbox"),
+    ])
+    const activeTasks: Task[] = []
+
+    // Inbox tasks (no project assigned)
+    const inboxTasks: any[] = inboxData.tasks ?? []
+    activeTasks.push(...mapTasks(inboxTasks, "Inbox"))
+
+    // Project tasks
+    for (const project of projects) {
+        const data = await getProjectData(project.id)
+        const tasks: any[] = data.tasks ?? []
+        activeTasks.push(...mapTasks(tasks, project.name))
+    }
+
+    logger.info(`TickTick: ${activeTasks.length} tasks due today`)
+    return activeTasks
 }

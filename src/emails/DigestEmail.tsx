@@ -44,7 +44,7 @@ export const DigestEmail = ({ tasks, date }: DigestEmailProps) => {
     return (
         <Html lang="es">
             <Head />
-            <Preview>Aurora Digest – {date}: {tasks.length} tareas activas</Preview>
+            <Preview>Aurora Digest – {date}: {tasks.length.toString()} tareas activas</Preview>
             <Body style={body}>
                 <Container style={container}>
                     <Heading style={heading}>🌅 Aurora Digest</Heading>
