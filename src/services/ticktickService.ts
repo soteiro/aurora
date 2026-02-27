@@ -30,9 +30,9 @@ const getStatusLabel = (status: number, priority: number): string => {
 const mapTasks = (tasks: any[], listName: string): Task[] =>
     tasks
         .filter((task: any) =>
-            task.status !== COMPLETED_STATUS  &&
-            task.dueDate  &&  isToday(task.dueDate)
-            )
+            task.status !== COMPLETED_STATUS &&
+            task.dueDate && isToday(task.dueDate)
+        )
         .map((task: any) => ({
             name: task.title,
             id: task.id,
@@ -63,3 +63,4 @@ export const getActiveTickTickTasks = async (): Promise<Task[]> => {
     logger.info(`TickTick: ${activeTasks.length} tasks due today`)
     return activeTasks
 }
+
