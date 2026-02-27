@@ -1,0 +1,21 @@
+name: Deploy to Sauron
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SAURON_HOST }}
+          username: ${{ secrets.SAURON_USER }}
+          key: ${{ secrets.SAURON_SSH_KEY }}
+          script: |
+            cd ~/programs/aurora
+            git pull origin main
+            ~/.bun/bin/bun install --frozen-lockfile
