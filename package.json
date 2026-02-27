@@ -17,6 +17,7 @@
   "dependencies": {
     "@api/clickup": "file:.api/apis/clickup",
     "@react-email/components": "1.0.7",
+    "@react-email/tailwind": "^2.0.5",
     "axios": "^1.13.5",
     "pino": "^10.3.1",
     "react": "19.2.4",
